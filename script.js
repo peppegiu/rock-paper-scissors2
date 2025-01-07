@@ -1,6 +1,6 @@
-// FUNÇÃO pegarvalordocomputador COMEÇO
+
 function getComputerChoice() {
-// Faça o cálculo da escolha do computador entre 3 opções arredonde o número e armazene na variável computerChoice.
+
     let choice = Math.floor(Math.random() * 3);
 
     switch (choice) {
@@ -17,9 +17,9 @@ function getComputerChoice() {
 
 }
 
-//FUNÇÃO pegarvalordousuário COMEÇO
+
 function getHumanChoice(round) {
-    //ENQUANTO valordousuário for diferente a pedra ou papel ou tesoura FAÇA
+
     let choice;
     
     do {
