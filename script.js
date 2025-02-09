@@ -1,3 +1,7 @@
+let humanSelection, computerSelection;
+humanSelection = document.querySelector(".player");
+computerSelection = document.querySelector(".computer");
+const choices = ["./img/pedra.png", "./img/tesouras.png", "./img/papel.png"]
 
 function getComputerChoice() {
 
@@ -6,79 +10,97 @@ function getComputerChoice() {
     switch (choice) {
 
         case 0:
+            computerSelection.src = choices[0];
             return "rock";
 
         case 1: 
+            computerSelection.src = choices[1];
             return "scissors";
 
         case 2:
+            computerSelection.src = choices[2];
             return "paper";    
 }
 
 }
 
 
-function getHumanChoice(round) {
+const buttons = document.querySelectorAll("button");
 
-    let choice;
-    
-    do {
-        choice = prompt("Choose between rock, paper or scissors. \nround: " + round );
-        if (choice === null) {
-            choice = prompt("Choose between rock, paper or scissors.  \nround: " + round + " \nError: Your answer was NULL.");    
-        }
-        else {
-           return choice.toLowerCase();
-        }
-    } while (!(choice === "paper" || choice === "scissors" || choice === "rock" ) || choice === null)
-    
-    return choice;
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        playRound(button.value, getComputerChoice())
+        console.log(button.value);
+    })
+})
+
+
+
+let humanScore = 0;
+let computerScore = 0;
+const humanPointsElement = document.querySelector("#playerPoints");
+const computerPointsElement = document.querySelector("#computerPoints");
+
+const result = document.querySelector("#result");
+
+function updatePoints() {
+    humanPointsElement.textContent = humanScore;
+    computerPointsElement.textContent = computerScore;
 }
-
-
-
-
-let humanSelection, computerSelection;
-
-
-
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
 
     function playRound(humanChoice, computerChoice) {
         //    SE escolhaHumana igual a escolha computador FAÇA
-            alert(`You choose ${humanChoice} \ncomputer choose ${computerChoice}`);
+            
+
+
+            switch(humanChoice) {
+                case "rock":
+                    humanSelection.src = choices[0];
+                    break;
+                
+                case "scissors":
+                    humanSelection.src = choices[1];
+                    break;
+
+                case "paper":
+                    humanSelection.src = choices[2];
+                    break;
+            }
         
+
+
             if (humanChoice === computerChoice) {
-                alert("Draw in this round");
+                result.textContent = "Draw in this round";
             }
             else if(humanChoice === "scissors" && computerChoice === "paper" || humanChoice === "paper" && computerChoice === "rock" || humanChoice === "rock" && computerChoice === "scissors") {
                 humanScore++;
-                alert("You Win this round!");
+                updatePoints();
+                result.textContent = "You Win this round!";
             }
             else {
                 computerScore++;
-                alert("Computer wins this round!");
+                updatePoints();
+                result.textContent = "Computer wins this round!";
             } 
-        }
-        
-    for (let i = 1; i <= 5; i++) {
-        humanSelection = getHumanChoice(i);
-        computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-    }
 
-    if (humanScore === computerScore) {
-        alert("Draw!");
+            if (humanScore == 5 || computerScore == 5) {
+                checkgame(humanScore, computerScore);
+                for (button of buttons) {
+                    button.disabled = true;
+                }
+            }    
+        }
+
+
+
+function checkgame(human, computer) {
+    if (human == 5) {
+        result.textContent = "Player won the game! Reload the page to play again";
+
     }
-    if (humanScore > computerScore) {
-        alert("You win!");
-    }
-    if (humanScore < computerScore) {
-        alert("Computer wins!");
+    else if (computer == 5) {
+        result.textContent = "Computer won the game! Reload the page to play again";
     }
 }
 
-playGame();
  

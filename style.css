@@ -1,0 +1,103 @@
+:root {
+    --desktop-height: 1080px;
+    --mobile-height: 600px;
+    --button-total: 120px;
+}
+
+
+.buttons {
+    height: 140px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    gap: 15px;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: var(--desktop-height);
+    box-sizing: border-box;
+    background: radial-gradient(circle at top, hsl(214deg, 47%, 23%), hsl(237deg, 49%, 15%));
+    color: white;
+    gap: 10px;
+}
+
+
+#results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+#results .computer {
+    width: 290px;
+    height: 290px;
+}
+
+#results .player {
+    width: 290px;
+    height: 290px;
+}
+
+.points {
+    display: flex;
+    gap: 20px;
+}
+
+
+button {
+    width: var(--button-total);
+    height: var(--button-total);
+    border-color: black;
+    border-radius: 70px;
+
+}
+
+button img {
+    position: relative;
+    width: 78px;
+    height: 78px;
+}
+
+
+.white-board {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    width: 112px;
+    height: 110px;
+    font-family: Inter;
+    font-size: 60px;
+    font-weight: 600;
+    border-radius: 20px;
+    flex-direction: column;
+    position: relative;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
+
+.white-board .point-text {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+
+p {
+    margin: 0;
+}
+
+@media only screen and (max-height: 970px) {
+    body {
+        height: var(--mobile-height) !important;
+    }
+}
+

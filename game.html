@@ -4,8 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, paper and scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="points">      
+        <section class="point">
+            
+            <div class="white-board">
+                <p class="point-text">Computer:</p>
+                <p id="computerPoints"></p>
+            </div>
+        </section>
+        <section class="point">
+        
+            <div class="white-board">
+                <p class="point-text">Player:</p>
+                <p id="playerPoints"></p>
+            </div>   
+        </section>
+    </div>
+
+    <h1 id = "result"></h1>
+    <div id="results">
+        <p>Computer</p>
+        <img class="computer">
+        <p>Player</p>
+        <img class="player">
+    </div>
+
+
+    <div class="buttons">
+        <button class="rockButton" value="rock"><img src="./img/pedra.png" alt=""></button>
+        <button class="paperButton" value="paper"><img src="./img/papel.png" alt=""></button>
+        <button class="scissorsButton" value="scissors"><img src="./img/tesouras.png" alt=""></button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
